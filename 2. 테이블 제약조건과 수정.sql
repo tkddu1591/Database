@@ -1,0 +1,70 @@
+#날짜 : 2023/06/16
+#이름 : 김상엽
+#내용 : 2. 테이블 제약조건과 수정
+
+CREATE TABLE `User2` (
+`uid` VARCHAR(10) PRIMARY KEY,
+`name` VARCHAR(10),
+`hp` CHAR(13),
+`age` INT
+);
+
+
+CREATE TABLE `User3` (
+`uid` VARCHAR(10) PRIMARY KEY,
+`name` VARCHAR(10),
+`hp` CHAR(13) UNIQUE,
+`age` INT
+);
+
+ CREATE TABLE `Parent` (
+`pid` VARCHAR(10) PRIMARY KEY,
+`name` VARCHAR(10),
+`hp` CHAR(13) UNIQUE
+);
+ CREATE TABLE `Child` (
+`cid` VARCHAR(10) PRIMARY KEY,
+`name` VARCHAR(10),
+`hp` CHAR(13) UNIQUE,
+`pid` VARCHAR(10),
+FOREIGN KEY (`pid`) REFERENCES `Parent` (`pid`)
+);
+
+
+CREATE TABLE `User4`(
+`seq` INT AUTO_INCREMENT PRIMARY KEY,
+`name` VARCHAR(10),
+`gender`TINYINT,
+`age` INT,
+`addr` VARCHAR(255)
+);
+
+CREATE TABLE `User5`(
+`name` VARCHAR(10) NOT NULL,
+`gender`TINYINT,
+`age` INT DEFAULT 1,
+`addr` VARCHAR(10)
+);
+
+DROP TABLE `User2`;
+DROP TABLE `User3`;
+DROP TABLE `User4`;
+DROP TABLE `User5`;
+DROP TABLE `Child`;
+DROP TABLE `Parent`;
+
+ALTER TABLE `User5` ADD `hp` VARCHAR(20);
+ALTER TABLE `User5` ADD `birth` CHAR(10) DEFAULT '2000-00-00' AFTER `name`;
+
+ALTER TABLE `User5` MODIFY `hp` CHAR(13);
+ALTER TABLE `User5` MODIFY `age` TINYINT;
+
+ALTER TABLE `User5` CHANGE COLUMN `addr` `address` VARCHAR(100);
+
+ALTER TABLE `User5` DROP `gender`;
+
+
+CREATE TABLE `User6` LIKE `User5`;
+
+INSERT INTO `User6` SELECT * FROM `User5`;
+
