@@ -21,7 +21,7 @@ CREATE TABLE `Department`(
 CREATE TABLE `Sales`(
 	`seq`		INT AUTO_INCREMENT PRIMARY KEY,
 	`uid`		VARCHAR(10) NOT NULL,
-	`year`	YEAR NOT NULL,
+	`year`	YEAR NOT NULL,ermodel
 	`month`	TINYINT NOT NULL,
 	`sale`	INT NOT NULL
 	);
@@ -57,48 +57,48 @@ INSERT INTO `Department` VALUES (106,'영업지원부','051-512-1006');
 INSERT INTO `Department` VALUES (107,'인사부','051-512-1007');
 
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a101',2018,1,98100);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102',2018,1,136000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103',2018,1,80100);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104',2018,1,78000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105',2018,1,93000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a101',2018,1,98100);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a102',2018,1,136000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a103',2018,1,80100);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a104',2018,1,78000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a105',2018,1,93000);
 
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a101',2018,2,23500);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102',2018,2,126000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103',2018,2,18500);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105',2018,2,19000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106',2018,2,53000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a101',2018,2,23500);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a102',2018,2,126000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a103',2018,2,18500);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a105',2018,2,19000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a106',2018,2,53000);
 
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a101',2019,1,24000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102',2019,1,109000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103',2019,1,101000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104',2019,1,53500);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a107',2019,1,24000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a101',2019,1,24000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a102',2019,1,109000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a103',2019,1,101000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a104',2019,1,53500);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a107',2019,1,24000);
 
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102',2019,2,160000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103',2019,2,101000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104',2019,2,43000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105',2019,2,24000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106',2019,2,109000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a102',2019,2,160000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a103',2019,2,101000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a104',2019,2,43000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a105',2019,2,24000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a106',2019,2,109000);
 
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102',2020,1,201000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104',2020,1,63000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105',2020,1,74000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106',2020,1,122000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a107',2020,1,111000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a102',2020,1,201000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a104',2020,1,63000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a105',2020,1,74000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a106',2020,1,122000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a107',2020,1,111000);
 
 
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a102',2020,2,120000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a103',2020,2,93000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a104',2020,2,84000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a105',2020,2,180000);
-INSERT INTO `Sales` (`uid`,`year`,`month`,`sale`) VALUES ('a106',2020,2,76000);  
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a102',2020,2,120000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a103',2020,2,93000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a104',2020,2,84000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a105',2020,2,180000);
+INSERT INTO `Sales` (`uid`,`year`,`month`,`price`) VALUES ('a106',2020,2,76000);  
 
-
+erd1
 SELECT * FROM `Member` WHERE `name`='김유신';
 SELECT * FROM `Member` WHERE `pos`='차장' AND dep=101;
 SELECT * FROM `Member` WHERE `pos`='차장' OR dep=101;

@@ -13,7 +13,6 @@ CREATE TABLE `Bank_Customer`(
 `c_dist` INT NOT NULL,
 `c_phone` VARCHAR(20) NOT NULL UNIQUE KEY,
 `c_addr` VARCHAR(100));
-
 CREATE TABLE `bank_account` (
 `a_o` VARCHAR(11) PRIMARY KEY,
 `a_item_dist` VARCHAR(2) NOT NULL,
@@ -205,16 +204,18 @@ ORDER BY `t_amount` DESC;
 #2-30
 SELECT 
 	ANY_VALUE(`t_no`),
+	ANY_VALUE(`a_o`),
 	`c_no`,
-	`c_name`,
-	COUNT(*) AS `거래건수`
-
+	ANY_VALUE(`t_dist`)AS `구분`,
+	ANY_VALUE(`a_item_name`),
+	ANY_VALUE(`c_name`),
+	COUNT(t_no) AS `거래건수`
 FROM `bank_transaction` AS a
 JOIN `bank_account` AS b ON a.t_a_no = b.a_o
 JOIN `bank_customer` AS c ON b.a_c_no= c.c_no
 WHERE `t_dist` IN(1, 2) AND `c_dist` =1
 GROUP BY `c_name`,b.a_o
-ORDER BY  `거래건수` DESC;
+ORDER BY  구분, `거래건수` DESC;
 
 
 SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
