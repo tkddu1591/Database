@@ -46,3 +46,115 @@ INSERT INTO `Nurses` VALUES('N108101','송중기','1992-10-07','M','108','간호
 
 
 INSERT INTO `Patients` VALUES('P102101','D102101','N102101','정우성','760121-1234567','M','서울','010-1101-7601',NULL,'배우');
+INSERT INTO `Patients` VALUES('P103101','D103101','N103101','이정재','750611-1234567','M','서울','010-1102-7506',NULL,'배우');
+INSERT INTO `Patients` VALUES('P102102','D102104','N102103','전지현','890530-1234567','F','대전','010-1103-8905','jjh@naver.com','자영업');
+INSERT INTO `Patients` VALUES('P104101','D104101','N104101','이나영','790413-1234567','F','대전','010-2101-7904','lee@naver.com','회사원');
+INSERT INTO `Patients` VALUES('P105101','D105101','N105101','원빈','660912-1234567','M','대전','010-2104-6609','one@daum.net','배우');
+
+INSERT INTO `Patients` VALUES('P103102','D103101','N103101','장동건','790728-1234567','M','대구','010-3101-7907','jang@nvaer.com','배우');
+INSERT INTO `Patients` VALUES('P104102','D104101','N104101','고소영','840615-1234567','F','대구','010-4101-8406','goso@daum.net','회사원');
+INSERT INTO `Patients` VALUES('P108101','D108101','N108101','김연아','651021-1234567','F','대구','010-5101-6510','yuna@daum.net','운동선수');
+INSERT INTO `Patients` VALUES('P102103','D102104','N102102','유재석','721128-1234567','M','부산','010-6101-7211',NULL,'개그맨');
+INSERT INTO `Patients` VALUES('P107101','D107104','N107101','강호동','920907-1234567','M','부산','010-7103-9209',NULL,'개그맨');
+
+INSERT INTO `Patients` VALUES('P105102','D105101','N105101','조인성','891209-1234567','M','광주','010-7104-8912','join@gamil.com','배우');
+INSERT INTO `Patients` VALUES('P104103','D104101','N104101','강동원','770314-1234567','M','광주','010-8101-7703','dong@naver.com','배우');
+
+
+INSERT INTO `Treatment` VALUES('1021001','D102101','P102101','감기, 몸살','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1031002','D103101','P103101','교통사고 외상','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1021003','D102104','P102102','위염, 장염','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1041004','D104101','P104101','피부 트러블','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1051005','D105101','P105101','코막힘 및 비염','2022-01-10 10:50:12');
+
+INSERT INTO `Treatment` VALUES('1031006','D103101','P103102','목 디스크','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1041007','D104101','P104102','여드름','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1081008','D108101','P108101','오른쪽 발목 뼈 골절','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1021009','D102104','P102103','소화불량','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1071010','D107104','P107101','가슴통증','2022-01-10 10:50:12');
+
+INSERT INTO `Treatment` VALUES('1051011','D105101','P105102','귀 이명','2022-01-10 10:50:12');
+INSERT INTO `Treatment` VALUES('1041012','D104101','P104103','팔목 화상','2022-01-10 10:50:12');
+
+
+INSERT INTO `Charts` VALUES ('C1021001','1021001','D102101','P102101','감기 주사 및 약 처방');
+INSERT INTO `Charts` VALUES ('C1031002','1031002','D103101','P103101','입원치료');
+INSERT INTO `Charts` VALUES ('C1021003','1021003','D102104','P102102','위내시경');
+INSERT INTO `Charts` VALUES ('C1041004','1041004','D104101','P104101','피부 감염 방지 주사');
+INSERT INTO `Charts` VALUES ('C1051005','1051005','D105101','P105101','비염 치료');
+
+INSERT INTO `Charts` VALUES ('C1031006','1031006','D103101','P103102','목 견인치료');
+INSERT INTO `Charts` VALUES ('C1041007','1041007','D104101','P104102','여드름 치료약 처방');
+INSERT INTO `Charts` VALUES ('C1081008','1081008','D108101','P108101','발목 깁스');
+INSERT INTO `Charts` VALUES ('C1021009','1021009','D102104','P102103','주사 처방');
+INSERT INTO `Charts` VALUES ('C1071010','1071010','D107104','P107101','MRI 검사');
+
+INSERT INTO `Charts` VALUES ('C1051011','1051011','D105101','P105102','귀 청소 및 약 처방');
+INSERT INTO `Charts` VALUES ('C1041012','1041012','D104101','P104103','화상 크림약 처방');
+
+
+
+
+#1 모든 의사의 의사 ID, 이름, 생년월일, 전공의과 번호, 전공의과 이름 조회
+
+SELECT a.doc_id,a.doc_name,a.doc_birth,b.dep_no,b.dep_name FROM `doctors` AS a
+JOIN `department` AS b ON a.dep_no = b.dep_no;
+
+#2
+SELECT a.nur_id,a.nur_name,a.nur_birth,a.dep_no,b.dep_name FROM nurses AS a
+join department AS b ON a.dep_no = b.dep_no;
+
+
+#3
+SELECT a.pat_id, a.pat_name, a.pat_jumin, a.pat_phone, b.doc_name, c.nur_name FROM patients AS a 
+JOIN doctors AS b ON a.doc_id = b.doc_id
+JOIN nurses AS c ON a.nur_id = c.nur_id;
+
+#4
+SELECT b.pat_name, c.doc_name, a.treat_contents, d.chart_contents, a.treat_datetime FROM  treatment AS a
+JOIN  patients AS b ON a.pat_id = b.pat_id
+JOIN doctors AS c ON a.doc_id = c.doc_id
+JOIN charts AS d ON d.treat_no = a.treat_no;
+
+#5
+SELECT a.treat_no, b.pat_name, c.doc_name, a.treat_contents, d.chart_contents ,a.treat_datetime FROM  treatment AS a
+JOIN  patients AS b ON a.pat_id = b.pat_id
+JOIN doctors AS c ON a.doc_id = c.doc_id
+JOIN charts AS d ON d.treat_no = a.treat_no
+JOIN department AS e ON e.dep_no = c.dep_no
+WHERE  e.dep_name = '외과';
+
+
+#6
+SELECT b.pat_name, c.doc_name, a.treat_contents, d.chart_contents ,a.treat_datetime FROM  treatment AS a
+JOIN  patients AS b ON a.pat_id = b.pat_id
+JOIN doctors AS c ON a.doc_id = c.doc_id
+JOIN charts AS d ON d.treat_no = a.treat_no
+WHERE  a.treat_contents LIKE '%화상%';
+
+
+#7
+SELECT *  FROM patients AS a
+WHERE ((DATE_FORMAT(NOW(),'%y')+100)-SUBSTR(a.pat_jumin,1,2) ) BETWEEN 30 AND 40; 
+
+#concat('19'SUBSTR(a.pat_jumin,1,2)) = 19## 임
+
+#8
+SELECT a.doc_name, c.dep_name FROM doctors AS a
+LEFT  JOIN  department AS b ON a.doc_name = b.dep_manager
+JOIN department AS c ON a.dep_no= c.dep_no
+WHERE b.dep_name is NULL;
+
+#9
+SELECT 
+	GROUP_CONCAT(`pat_name` SEPARATOR '^') AS 환자들
+FROM patients AS a
+JOIN nurses AS b ON a.nur_id = b.nur_id
+WHERE b.nur_name = '김태희'
+
+
+#10
+SELECT a.nur_id ,a.nur_name, COUNT(*) AS 담당환자 FROM nurses AS a
+JOIN patients AS b ON a.nur_id = b.nur_id
+GROUP BY nur_name, a.nur_id
+ORDER BY 담당환자 DESC  LIMIT 1;
