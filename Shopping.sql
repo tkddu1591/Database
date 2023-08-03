@@ -177,12 +177,10 @@ WHERE a.prodNo IS NULL ;
 
 
 #9
-SELECT     b.orderNo AS 주문번호,     
+SELECT b.orderNo AS 주문번호,
 FLOOR(SUM((prodPrice - (prodPrice * a.itemDiscount / 100)) * itemCount)) 
 AS 최종총합 FROM orderitems AS a JOIN products AS c ON a.prodNo = c.prodNo 
 JOIN orders AS b ON a.orderNo = b.orderNo 
 GROUP BY b.orderNo 
 HAVING FLOOR(SUM((prodPrice - (prodPrice * a.itemDiscount / 100)) * a.itemCount)) >= 100000
 ORDER BY FLOOR(SUM((prodPrice - (prodPrice * a.itemDiscount / 100)) * a.itemCount)) DESC;
-
-
