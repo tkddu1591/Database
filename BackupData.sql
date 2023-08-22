@@ -1158,3 +1158,23 @@ INSERT INTO `user6` (`uid`, `name`, `hp`, `age`) VALUES
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
+create table jboard.product
+(
+    pNo      int auto_increment
+        primary key,
+    type     int          null,
+    pName    varchar(100) null,
+    price    int          null,
+    delivery int          null,
+    stock    int          null,
+    sold     int          null,
+    thumb1   varchar(100) null,
+    thumb2   varchar(100) null,
+    thumb3   varchar(100) null,
+    seller   varchar(100) null,
+    etc      varchar(100) null,
+    rDate    datetime     null
+);
+
+
